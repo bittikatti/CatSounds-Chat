@@ -1,0 +1,25 @@
+*
+!.gitignore
+!*.md
+
+!docs/
+
+# JSONS
+!*.json
+!*.jsonc
+
+# Folders
+!public/
+!public/**
+!src/
+!src/**
+
+!docs/
+!docs/*.md
+
+# Source code and styles
+!*.js
+!*.css
+!*.html
+!*.tsx
+!*.ts

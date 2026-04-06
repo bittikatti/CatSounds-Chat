@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import './App.css';
 
-import { AssistantMessageElement, UserMessageElement } from './chat/chat-components.tsx';
+import { AssistantMessageElement, UserMessageElement, InputBoxElement } from './chat/chat-components.tsx';
 import type { AssistantMessage, UserMessage } from './chat/chat-types.tsx';
 
 function App() {
@@ -37,21 +37,11 @@ function App() {
             <UserMessageElement key={i} message={msg} />
           ))}
         </div>
-        <div className='input-container'>
-          <textarea
-            id='UserInput'
-            aria-label='Write your message here'
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder='Type your message...'/>
-          
-          <button
-            className='send-button'
-            aria-label='Send your message'
-            onClick={handleAdd}>
-              Send
-          </button>
-        </div>
+        <InputBoxElement
+          text={text}
+          onTextChange={setText}
+          onSend={handleAdd}
+        />
       </div>
     </>
   )

@@ -1,6 +1,6 @@
-import type { AssistantMessage, UserMessage } from './chat-types.tsx';
+import type { AssistantMessageProperty, UserMessageProperty } from './chat-types.tsx';
 
-export function AssistantMessageElement({message} : {message: AssistantMessage}) {
+export const AssistantMessageElement = ({message}: AssistantMessageProperty) => {
     return (
         <div className='assistant message'>
             {/* Transcript and the sound */}
@@ -11,7 +11,7 @@ export function AssistantMessageElement({message} : {message: AssistantMessage})
     )
 }
 
-export function UserMessageElement({message} : {message: UserMessage}) {
+export const UserMessageElement = ( {message}: UserMessageProperty) => {
     return (
         <div className='user message'>
             <p>{message.text}</p>

@@ -4,8 +4,8 @@ export function InputBox() {
 
   return (
     <div className='input-container'>
-        <input id='UserInput' />
-        <button className='send-button'/>
+        <input id='UserInput' aria-label='Write your message here' />
+        <button className='send-button' aria-label='Send your message'/>
     </div>
   )
 }

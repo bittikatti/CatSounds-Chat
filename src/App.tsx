@@ -1,6 +1,6 @@
 import './App.css';
 
-import { InputBox, AssistantMessageElement, UserMessageElement } from './chat/chat-components.tsx';
+import { AssistantMessageElement, UserMessageElement } from './chat/chat-components.tsx';
 import type { AssistantMessage, UserMessage } from './chat/chat-types.tsx';
 
 function App() {
@@ -13,8 +13,13 @@ function App() {
     <>
       <h1>Cat Chat</h1>
       <div className='chat-container'>
-        <AssistantMessageElement message={initialMessage}></AssistantMessageElement>
-        <InputBox></InputBox>
+        <div className='messages' id='Messages'>
+          <AssistantMessageElement message={initialMessage}></AssistantMessageElement>
+        </div>
+        <div className='input-container'>
+          <textarea id='UserInput' aria-label='Write your message here' />
+          <button className='send-button' aria-label='Send your message'>Send</button>
+        </div>
       </div>
     </>
   )

@@ -1,15 +1,5 @@
 import type { AssistantMessage, UserMessage } from './chat-types.tsx';
 
-export function InputBox() {
-
-  return (
-    <div className='input-container'>
-        <textarea id='UserInput' aria-label='Write your message here' />
-        <button className='send-button' aria-label='Send your message'>Send</button>
-    </div>
-  )
-}
-
 export function AssistantMessageElement({message} : {message: AssistantMessage}) {
     return (
         <div className='assistant message'>

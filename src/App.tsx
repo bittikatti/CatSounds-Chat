@@ -1,7 +1,7 @@
 import './App.css';
 
-import { InputBox, AssistantMessageElement } from './chat-types.tsx';
-import type { AssistantMessage } from './chat-types.tsx';
+import { InputBox, AssistantMessageElement, UserMessageElement } from './chat/chat-components.tsx';
+import type { AssistantMessage, UserMessage } from './chat/chat-types.tsx';
 
 function App() {
   const initialMessage: AssistantMessage = {

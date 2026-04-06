@@ -1,4 +1,4 @@
-import './App.css'
+import type { AssistantMessage, UserMessage } from './chat-types.tsx';
 
 export function InputBox() {
 
@@ -9,19 +9,6 @@ export function InputBox() {
     </div>
   )
 }
-
-type UserMessage = {
-    role: "user";
-    text: string;
-};
-
-export type AssistantMessage = {
-    role: "assistant";
-    text: string; // The transcript
-    sound?: string; // Optional if not always present
-};
-
-type Message = UserMessage | AssistantMessage;
 
 export function AssistantMessageElement({message} : {message: AssistantMessage}) {
     return (

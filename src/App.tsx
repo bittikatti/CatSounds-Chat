@@ -8,7 +8,7 @@ function App() {
     <>
       <h1>Cat Chat</h1>
       <div className='chat-container'>
-        <AssistantMessage></AssistantMessage>
+        <AssistantMessage transcript={"How may I meow at you today?"}></AssistantMessage>
         <InputBox></InputBox>
       </div>
     </>

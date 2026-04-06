@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRef, useEffect } from "react";
 
 import './App.css';
 
@@ -27,6 +28,15 @@ function App() {
     text: "How may I meow at you today?",
     sound: undefined, // or a string if you have it
   };
+
+  // Autoscroll functionality on messages update
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
   return (
     <>
       <div className='chat-container'>
@@ -37,6 +47,8 @@ function App() {
           {messages.map((msg, i) => (
             <UserMessageElement key={i} message={msg} />
           ))}
+          {/* Navigation pointer for autoscroll */}
+          <div ref={messagesEndRef} />
         </div>
         <InputBoxElement
           text={text}

@@ -28,6 +28,7 @@ export function AssistantMessageElement({message} : {message: AssistantMessage})
         <div className='assistant message'>
             {/* Transcript and the sound */}
             <p>{message.text}</p>
+            {/* TODO: What to do with the sound? */}
             <div className='sound'></div>
         </div>
     )

@@ -34,10 +34,10 @@ export function AssistantMessageElement({message} : {message: AssistantMessage})
     )
 }
 
-export function UserMessageElement() {
+export function UserMessageElement({message} : {message: UserMessage}) {
     return (
         <div className='user message'>
-            <p>Transcript</p>
+            <p>{message.text}</p>
         </div>
     )
 }

@@ -1,12 +1,14 @@
 import './App.css'
 
+import { InputBox } from './chat-types.tsx'
+
 function App() {
 
   return (
     <>
       <h1>Cat Chat</h1>
-      <div className='conversation'>
-        
+      <div className='chat-container'>
+        <InputBox></InputBox>
       </div>
     </>
   )

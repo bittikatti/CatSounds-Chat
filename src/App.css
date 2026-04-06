@@ -9,6 +9,7 @@
   flex-direction: column;
 }
 
+/* Sectioning chat top, middle and bottom parts */
 .chat-container {
   display: flex;
   flex-direction: column;
@@ -16,6 +17,40 @@
   height: 79dvh;
   position: relative;
 }
+
+.header-title {
+  position: sticky;
+  top: 2rem;
+}
+
+.input-container {
+  flex-shrink: 0;  /* don’t shrink */
+  display: flex;
+  align-items: flex-start; /* prevents stretching */
+  gap: 0.5rem;   /* small space between */
+  padding-top: 1rem;
+  position: sticky;
+  bottom: 2rem;
+}
+
+/* Horizontal alignment and styling inside input-container */
+
+#UserInput {
+  flex: 1; /* fills available width */
+  height: 5rem;
+  overflow-y: auto;
+  resize: none;
+}
+
+
+.input-container button {
+  flex-shrink: 0;  /* don’t shrink */
+}
+
+/* Vertical (and horizontal) alignment of messages (middle)
+spacing
+etc.
+*/
 
 .messages {
   padding: 1rem;
@@ -52,26 +87,4 @@
 
 .user {
   align-self: flex-end;     /* right */
-}
-
-.input-container {
-  flex-shrink: 0;  /* don’t shrink */
-  display: flex;
-  align-items: flex-start; /* prevents stretching */
-  gap: 0.5rem;   /* small space between */
-  padding-top: 1rem;
-  position: sticky;
-  bottom: 2rem;
-}
-
-#UserInput {
-  flex: 1; /* fills available width */
-  height: 5rem;
-  overflow-y: auto;
-  resize: none;
-}
-
-
-.input-container button {
-  flex-shrink: 0;  /* don’t shrink */
 }

@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark; /* Page uses users color preference */
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #7ec699;
+  background-color: #041c1c;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,7 +15,7 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #041c1c;
+    background-color: #7ec699;
   }
 }

@@ -16,5 +16,3 @@ export type AssistantMessage = {
 export type AssistantMessageProperty = {
     message: AssistantMessage;
 }
-
-type Message = UserMessage | AssistantMessage;

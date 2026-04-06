@@ -29,11 +29,11 @@ function App() {
   };
   return (
     <>
-      <h1>Cat Chat</h1>
       <div className='chat-container'>
+        <h1 className='header-title'>Cat Chat</h1>
         <div className='messages' id='Messages'>
           <AssistantMessageElement message={initialMessage}></AssistantMessageElement>
-          
+
           {messages.map((msg, i) => (
             <UserMessageElement key={i} message={msg} />
           ))}

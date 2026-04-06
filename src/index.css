@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark; /* Page uses users color preference */
-  color: #7ec699;
-  background-color: #041c1c;
+  color: #d1d5db; /* neutral light gray instead of green */
+  background-color: #031313;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,9 +13,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.user {
+  background-color: #2ecc71;
+  color: #041c1c;
+}
+
+.assistant {
+  background-color: #062a21;
+  color: #2ecc71;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #041c1c;
-    background-color: #7ec699;
+    background-color: #d1d5db;
+  }
+  
+  .assistant {
+    color: #041c1c;
+    background-color: #9c9b9b;
   }
 }

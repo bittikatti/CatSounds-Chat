@@ -1,6 +1,6 @@
 import './App.css'
 
-import { InputBox } from './chat-types.tsx'
+import { InputBox, AssistantMessage } from './chat-types.tsx'
 
 function App() {
 
@@ -8,6 +8,7 @@ function App() {
     <>
       <h1>Cat Chat</h1>
       <div className='chat-container'>
+        <AssistantMessage></AssistantMessage>
         <InputBox></InputBox>
       </div>
     </>

@@ -9,3 +9,21 @@ export function InputBox() {
     </div>
   )
 }
+
+export function AssistantMessage() {
+    return (
+        <div className='assistant message'>
+            {/* Transcript and the sound */}
+            <p>Transcript</p>
+            <div className='sound'></div>
+        </div>
+    )
+}
+
+export function UserMessage() {
+    return (
+        <div className='user message'>
+            <p>Transcript</p>
+        </div>
+    )
+}

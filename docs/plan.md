@@ -6,7 +6,7 @@ More details of api in [CatSounds repository](https://github.com/bittikatti/CatS
 [ ] Basic conversations view
 
     [ ] Cat message box (accessible)
-    [ ] Initial message (accessible)
+    [X] Initial message (accessible)
     [ ] User message box (accessible)
     [ ] GUI for user to send message (accessible)
     [ ] Local storage for the conversation

@@ -33,6 +33,7 @@ function App() {
       <div className='chat-container'>
         <div className='messages' id='Messages'>
           <AssistantMessageElement message={initialMessage}></AssistantMessageElement>
+          
           {messages.map((msg, i) => (
             <UserMessageElement key={i} message={msg} />
           ))}

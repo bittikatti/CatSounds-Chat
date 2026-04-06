@@ -1,9 +1,11 @@
 #root {
-  padding: 2rem;
+  padding: 0;
 
   max-width: 1280px;
   /* centers horizontally */
   margin: 0 auto;
+
+  height: 100dvh;
 
   display: flex;
   flex-direction: column;
@@ -11,26 +13,26 @@
 
 /* Sectioning chat top, middle and bottom parts */
 .chat-container {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  /* Almost as high as the screen */
-  height: 79dvh;
-  position: relative;
+  min-height: 0;
 }
 
 .header-title {
   position: sticky;
-  top: 2rem;
+  top: 0;
+  flex-shrink: 0;
+  z-index: 10; /* Bring to front */
+  padding: 1rem;
 }
 
 .input-container {
   flex-shrink: 0;  /* don’t shrink */
   display: flex;
-  align-items: flex-start; /* prevents stretching */
   gap: 0.5rem;   /* small space between */
-  padding-top: 1rem;
-  position: sticky;
-  bottom: 2rem;
+  padding: 1rem;
+  align-items: flex-start;
 }
 
 /* Horizontal alignment and styling inside input-container */

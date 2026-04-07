@@ -33,9 +33,10 @@ type SoundLinkProperty = {
 
 const SoundElement = ({soundLink}: SoundLinkProperty) => {
     // Make element for sound to be listened.
+    const src = `/cdn?cdn=${encodeURIComponent(soundLink)}`;
     return (
         <div className='sound'>
-            <audio controls src={soundLink} />
+            <audio controls src={src} />
         </div>
     )
 }

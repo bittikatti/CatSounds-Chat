@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useRef, useEffect } from "react";
+import { useEffect } from "react";
 
 import './App.css';
 
@@ -51,14 +51,7 @@ function App() {
     sound: undefined
   };
 
-  // Autoscroll functionality on messages update
-  const messagesEndRef = useRef<HTMLDivElement | null>(null);
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
+  // TODO: Icon to scroll down if new messages
   return (
     <>
       <div className='chat-container'>
@@ -73,8 +66,7 @@ function App() {
             return <AssistantMessageElement key={i} message={msg} />
           })}
 
-          {/* Navigation pointer for autoscroll */}
-          <div ref={messagesEndRef} />
+          {/* TODO: Navigation pointer for icon to scroll to newest message */}
         </div>
         <InputBoxElement
           text={text}

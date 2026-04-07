@@ -27,13 +27,28 @@ export const InputBoxElement = ({ text, onTextChange, onSend }: InputBoxProperti
     );
 };
 
+type SoundLinkProperty = {
+    soundLink: string;
+};
+
+const SoundElement = ({soundLink}: SoundLinkProperty) => {
+    // Make element for sound to be listened.
+    return (
+        <div className='sound'>
+            <audio controls src={soundLink} />
+        </div>
+    )
+}
+
 export const AssistantMessageElement = ({message}: AssistantMessageProperty) => {
     return (
         <div className='assistant message'>
             {/* Transcript and the sound */}
             <p>{message.text}</p>
-            {/* TODO: What to do with the sound? */}
-            <div className='sound'></div>
+            {/* TODO: Need to call the sound from the worker api */}
+            {message.sound && (
+                <SoundElement soundLink={message.sound}/>
+            )}
         </div>
     )
 }

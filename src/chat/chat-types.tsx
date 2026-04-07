@@ -16,3 +16,5 @@ export type AssistantMessage = {
 export type AssistantMessageProperty = {
     message: AssistantMessage;
 }
+
+export type Message = UserMessage | AssistantMessage;

@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
 import './App.css';
 
 import { AssistantMessageElement, UserMessageElement, InputBoxElement } from './chat/chat-components.tsx';
-import type { AssistantMessage, UserMessage } from './chat/chat-types.tsx';
+import type { AssistantMessage, UserMessage, Message } from './chat/chat-types.tsx';
 
 function App() {
 
@@ -16,35 +16,39 @@ function App() {
   }, []);
   
   const [text, setText] = useState<string>("");
-  const [messages, setMessages] = useState<UserMessage[]>([]);
+  const [messages, setMessages] = useState<Message[]>([]);
 
   const getRandomSound = async () => {
     const res = await fetch("/random");
     const data = await res.json();
-    return data;
+    const assistantResponseMessage: AssistantMessage = {
+      role: "assistant",
+      text: data["data"]["Transcript"],
+      sound: data["data"]["SoundLink"],
+    };
+    setMessages(prev => [...prev, assistantResponseMessage]);
+    return;
   };
 
   const handleAdd = async () => {
     // Atm only adds user messages
     if (!text.trim()) return;
-
-    const sound = await getRandomSound();
-    console.log(sound);
     // TODO: At what point is the assistant message called?
 
     const newMessage: UserMessage = {
       role: "user",
       text: text,
     };
-
-    setMessages([...messages, newMessage]);
+    setMessages(prev => [...prev, newMessage]);
     setText("");
+
+    await getRandomSound();
   };
 
   const initialMessage: AssistantMessage = {
     role: "assistant",
     text: "How may I meow at you today?",
-    sound: undefined, // or a string if you have it
+    sound: undefined
   };
 
   // Autoscroll functionality on messages update
@@ -62,9 +66,13 @@ function App() {
         <div className='messages' id='Messages'>
           <AssistantMessageElement message={initialMessage}></AssistantMessageElement>
 
-          {messages.map((msg, i) => (
-            <UserMessageElement key={i} message={msg} />
-          ))}
+          {messages.map((msg, i) => {
+            if (msg.role === "user") {
+              return <UserMessageElement key={i} message={msg} />
+            }
+            return <AssistantMessageElement key={i} message={msg} />
+          })}
+
           {/* Navigation pointer for autoscroll */}
           <div ref={messagesEndRef} />
         </div>

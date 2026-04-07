@@ -7,6 +7,14 @@ import { AssistantMessageElement, UserMessageElement, InputBoxElement } from './
 import type { AssistantMessage, UserMessage } from './chat/chat-types.tsx';
 
 function App() {
+
+  // Set session id to cookies
+  useEffect(() => {
+    fetch("/session_id", {
+      credentials: "include"
+    });
+  }, []);
+  
   const [text, setText] = useState<string>("");
   const [messages, setMessages] = useState<UserMessage[]>([]);
 

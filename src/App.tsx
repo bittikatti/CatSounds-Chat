@@ -18,9 +18,19 @@ function App() {
   const [text, setText] = useState<string>("");
   const [messages, setMessages] = useState<UserMessage[]>([]);
 
-  const handleAdd = () => {
+  const getRandomSound = async () => {
+    const res = await fetch("/random");
+    const data = await res.json();
+    return data;
+  };
+
+  const handleAdd = async () => {
     // Atm only adds user messages
     if (!text.trim()) return;
+
+    const sound = await getRandomSound();
+    console.log(sound);
+    // TODO: At what point is the assistant message called?
 
     const newMessage: UserMessage = {
       role: "user",

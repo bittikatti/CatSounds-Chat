@@ -13,6 +13,7 @@
 !public/**
 !src/
 !src/**
+!functions/
 
 !docs/
 !docs/*.md

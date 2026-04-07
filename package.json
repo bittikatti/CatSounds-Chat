@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "npm run build && npx wrangler pages dev ./dist --service catsounds=catsounds",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "npm run build && wrangler pages dev",
@@ -16,6 +16,7 @@
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260405.1",
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.12.2",
     "@types/react": "^19.2.7",

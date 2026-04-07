@@ -1,42 +1,93 @@
 #root {
+  padding: 0;
+
   max-width: 1280px;
+  /* centers horizontally */
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+  height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Sectioning chat top, middle and bottom parts */
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-title {
+  position: sticky;
+  top: 0;
+  flex-shrink: 0;
+  z-index: 10; /* Bring to front */
+  padding: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.input-container {
+  flex-shrink: 0;  /* don’t shrink */
+  display: flex;
+  gap: 0.5rem;   /* small space between */
+  padding: 1rem;
+  align-items: flex-start;
 }
 
-.card {
-  padding: 2em;
+/* Horizontal alignment and styling inside input-container */
+
+#UserInput {
+  flex: 1; /* fills available width */
+  height: 5rem;
+  overflow-y: auto;
+  resize: none;
 }
 
-.read-the-docs {
-  color: #888;
+
+.input-container button {
+  flex-shrink: 0;  /* don’t shrink */
+}
+
+/* Vertical (and horizontal) alignment of messages (middle)
+spacing
+etc.
+*/
+
+.messages {
+  padding: 1rem;
+  border-radius: 1rem;
+  flex: 1;              /* take remaining space (height) */
+  min-height: 0;     /* required for scrolling to work properly */
+  display: flex;
+  flex-direction: column;
+
+  /* space between elements inside this */
+  gap: 0.5rem;
+
+  /* scroll */
+  overflow-y: auto;
+}
+
+.message {
+  border-radius: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  /* Message box size */
+  width: max-content;
+  max-width: 70%;
+
+  /* Message to fit inside the box */
+  overflow-wrap: break-word;   /* line break at word */
+  word-break: break-word;      /* if no space, break from the middle */
+}
+
+.assistant {
+  align-self: flex-start;   /* left */
+}
+
+.user {
+  align-self: flex-end;     /* right */
 }

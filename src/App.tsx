@@ -1,33 +1,79 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { useEffect } from "react";
+
+import './App.css';
+
+import { AssistantMessageElement, UserMessageElement, InputBoxElement } from './chat/chat-components.tsx';
+import type { AssistantMessage, UserMessage, Message } from './chat/chat-types.tsx';
 
 function App() {
-  const [count, setCount] = useState(0)
 
+  // Set session id to cookies
+  useEffect(() => {
+    fetch("/session_id", {
+      credentials: "include"
+    });
+  }, []);
+  
+  const [text, setText] = useState<string>("");
+  const [messages, setMessages] = useState<Message[]>([]);
+
+  const getRandomSound = async () => {
+    const res = await fetch("/random");
+    const data = await res.json();
+    const assistantResponseMessage: AssistantMessage = {
+      role: "assistant",
+      text: data["data"]["Transcript"],
+      sound: data["data"]["SoundLink"],
+    };
+    setMessages(prev => [...prev, assistantResponseMessage]);
+    return;
+  };
+
+  const handleAdd = async () => {
+    // Atm only adds user messages
+    if (!text.trim()) return;
+    // TODO: At what point is the assistant message called?
+
+    const newMessage: UserMessage = {
+      role: "user",
+      text: text,
+    };
+    setMessages(prev => [...prev, newMessage]);
+    setText("");
+
+    await getRandomSound();
+  };
+
+  const initialMessage: AssistantMessage = {
+    role: "assistant",
+    text: "How may I meow at you today?",
+    sound: undefined
+  };
+
+  // TODO: Icon to scroll down if new messages
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='chat-container'>
+        <h1 className='header-title'>Cat Chat</h1>
+        <div className='messages' id='Messages'>
+          <AssistantMessageElement message={initialMessage}></AssistantMessageElement>
+
+          {messages.map((msg, i) => {
+            if (msg.role === "user") {
+              return <UserMessageElement key={i} message={msg} />
+            }
+            return <AssistantMessageElement key={i} message={msg} />
+          })}
+
+          {/* TODO: Navigation pointer for icon to scroll to newest message */}
+        </div>
+        <InputBoxElement
+          text={text}
+          onTextChange={setText}
+          onSend={handleAdd}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }

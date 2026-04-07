@@ -17,10 +17,7 @@
 	"services": [{
 		"binding": "catsounds",
 		"service": "catsounds"
-	}],
-	"dev": {
-		"local_protocol": "https"
-	}
+	}]
 	
 	/**
 	 * Smart Placement

@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npm run build && wrangler pages dev",
+    "dev": "npm run build && npx wrangler pages dev ./dist --service catsounds=catsounds",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "npm run build && wrangler pages dev",

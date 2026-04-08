@@ -8,11 +8,11 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     const url = new URL(context.request.url);
     const cdn = url.searchParams.get("cdn");
 
-    /* Complains about type
+    /* Complains about type */
     if (!cdn) {
         return new Response("Missing cdn", { status: 400 });
     }
-    */
+    
 
     return context.env.catsounds.fetch(
         `http://internal${cdn}`,

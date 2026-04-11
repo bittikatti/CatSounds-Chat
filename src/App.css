@@ -86,6 +86,7 @@ etc.
 
 .assistant {
   align-self: flex-start;   /* left */
+  min-width: 220px;
 }
 
 .user {

@@ -92,3 +92,11 @@ etc.
 .user {
   align-self: flex-end;     /* right */
 }
+
+/* Make audio controls scale smaller if smaller screen.
+Due to .assistant message min-width will not scale down indefinitely */
+audio {
+  max-width: 100%;
+  flex: 1 1 auto;
+  padding-bottom: 1rem;
+}

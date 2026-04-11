@@ -45,7 +45,7 @@ export const AssistantMessageElement = ({message}: AssistantMessageProperty) => 
     return (
         <div className='assistant message'>
             {/* Transcript and the sound */}
-            <p>{message.text}</p>
+            <p>Transcript: [{message.text}]</p>
             {/* TODO: Need to call the sound from the worker api */}
             {message.sound && (
                 <SoundElement soundLink={message.sound}/>

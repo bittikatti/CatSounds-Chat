@@ -7,6 +7,8 @@ import { AssistantMessageElement, UserMessageElement, InputBoxElement } from './
 import type { AssistantMessage, UserMessage, Message } from './chat/chat-types.tsx';
 
 function App() {
+  // Accessibility aid for announcing new assistant messages
+  const [announcement, setAnnouncement] = useState<string>("");
 
   // Set session id to cookies
   useEffect(() => {
@@ -27,6 +29,11 @@ function App() {
       sound: data["data"]["SoundLink"],
     };
     setMessages(prev => [...prev, assistantResponseMessage]);
+
+    // For screen readers
+    setAnnouncement(
+      `New assistant message. Transcript: ${assistantResponseMessage.text}. Press PageDown to listen the recording.`
+    );
     return;
   };
 
@@ -56,6 +63,16 @@ function App() {
     <>
       <div className='chat-container'>
         <h1 className='header-title'>Cat Chat</h1>
+        
+        {/* Accessible way to announce new messages */}
+        <div
+          aria-live="polite"
+          aria-atomic="true"
+          style={{ position: "absolute", left: "-9999px" }}
+        >
+          {announcement}
+        </div>
+
         <div className='messages' id='Messages'>
           {/* The start message */}
           <div className='assistant message'>

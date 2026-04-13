@@ -57,7 +57,10 @@ function App() {
       <div className='chat-container'>
         <h1 className='header-title'>Cat Chat</h1>
         <div className='messages' id='Messages'>
-          <AssistantMessageElement message={initialMessage}></AssistantMessageElement>
+          {/* The start message */}
+          <div className='assistant message'>
+            <p>{initialMessage.text}</p>
+          </div>
 
           {messages.map((msg, i) => {
             if (msg.role === "user") {

@@ -52,3 +52,36 @@ h1 {
     background-color: #9c9b9b;
   }
 }
+
+/* Send button color style */
+
+.send-button svg {
+  display: block;
+  margin: auto;
+}
+
+.send-button:hover,
+.send-button:active,
+.send-button:focus,
+.send-button:focus-visible {
+  color: #d1d5db;
+}
+
+.send-button {
+  border: none;
+  background-color: transparent;
+  color: #2ecc71;
+}
+
+@media (prefers-color-scheme: light) {
+  
+  .send-button {
+    color: #062a21;
+  }
+  .send-button:hover,
+  .send-button:active,
+  .send-button:focus,
+  .send-button:focus-visible {
+    color: rgba(6, 42, 33, 0.1);
+  }
+}

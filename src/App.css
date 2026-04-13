@@ -36,7 +36,7 @@
   align-items: flex-start;
 }
 
-/* Horizontal alignment and styling inside input-container */
+/* Horizontal alignment and sizing inside input-container */
 
 #UserInput {
   flex: 1; /* fills available width */
@@ -48,6 +48,12 @@
 
 .input-container button {
   flex-shrink: 0;  /* don’t shrink */
+}
+
+.send-button {
+  padding: 0.1em;
+  width: 2em;
+  min-width: 20px;
 }
 
 /* Vertical (and horizontal) alignment of messages (middle)
